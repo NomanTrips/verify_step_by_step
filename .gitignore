@@ -1,0 +1,16 @@
+# Ignore all .log files
+#*.log
+
+# Ignore a specific file
+#my_sensitive_file.txt
+
+# Ignore all files in a specific folder
+#my_folder/
+data/
+ckpt/
+adapters/
+wandb/
+__pycache__/
+
+# But don't ignore this specific file in that folder
+#!my_folder/keep_this_file.txt
