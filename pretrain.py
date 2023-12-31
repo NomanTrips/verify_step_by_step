@@ -6,16 +6,14 @@ from peft import LoraConfig, PeftModel
 from trl import SFTTrainer
 
 import wandb
-wandb.init(project='verify_prm_pretrain', name='300mb')
+wandb.init(project='verify_prm_pretrain', name='gpt2')
 
 # The model that you want to train from the Hugging Face hub
-model_name = "/home/brian/Desktop/llama_2_7b_hf/"
-
-# The instruction dataset to use
-dataset_name = "mlabonne/guanaco-llama2-1k"
+#model_name = "/home/brian/Desktop/llama_2_7b_hf/"
+model_name = "gpt2"
 
 # Fine-tuned model name
-new_model = "./ckpt/prm_pretrain"
+new_model = "./adapters/gpt2_pretrained"
 
 ################################################################################
 # QLoRA parameters
@@ -61,7 +59,7 @@ fp16 = False
 bf16 = False
 
 # Batch size per GPU for training
-per_device_train_batch_size = 4
+per_device_train_batch_size = 32#4
 
 # Batch size per GPU for evaluation
 per_device_eval_batch_size = 4
@@ -101,7 +99,7 @@ group_by_length = True
 save_steps = 0
 
 # Log every X updates steps
-logging_steps = 25
+logging_steps = 10
 
 ################################################################################
 # SFT parameters

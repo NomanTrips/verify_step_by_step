@@ -80,6 +80,7 @@ class VerifyPRM(nn.Module):
 
         # Classification head
         self.classifier = nn.Linear(self.config.llama2_dim, 3).to(device)  # 3 classes
+        self.classifier = self.classifier.half()
     
     def init_llm(self, config):
         model = LlamaModel.from_pretrained(
@@ -104,6 +105,7 @@ class VerifyPRM(nn.Module):
         hidden_states = outputs[0]  # The hidden states
 
         cls_representation = hidden_states[:, 0, :]
+        #print(type(cls_representation))
         logits = self.classifier(cls_representation)
 
         return logits
