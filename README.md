@@ -22,6 +22,9 @@ The project involves finetuning a language model on a math corpus, consisting of
 ## Usage
 TODO
 
+## Limitations
+GPT2 may be too weak of a model for generating solutions of math problems. Currently the PRM model is only outputing a reward of 1.0, regardless of inputs (bug). This also prevents the ppo training from working :/
+
 ## License
 
 MIT

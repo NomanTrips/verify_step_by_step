@@ -66,8 +66,8 @@ llama_model.config.pretraining_tp = 1
 
 #llama_model.resize_token_embeddings(32003)
 
-adapters_path = "./adapters/phase2_1e-6_125461/verify_prm"
+adapters_path = "./adapters/phase2_1e-6_6000/verify_prm"
 model = PeftModel.from_pretrained(llama_model, adapters_path, torch_dtype=torch.float16, device_map=device_map)
 model = model.merge_and_unload()
 
-model.save_pretrained("./ckpt/prm_phase2")
+model.save_pretrained("./ckpt/prm_phase2_1e-6_6000")

@@ -42,7 +42,7 @@ peft_config = LoraConfig(
 device_map = {"": 0}
 
 # pretrained llama 2 on math problems
-llama_2_path = './ckpt/prm_phase2' #"./ckpt/prm_phase1" #"./ckpt/verify_prm_pretrain"
+llama_2_path = './ckpt/prm_phase2_1e-6_6000' #"./ckpt/prm_phase1" #"./ckpt/verify_prm_pretrain"
 tokenizer_path = "/home/brian/Desktop/llama_2_7b_hf/" # llama 2 tokenizer
 
 # Load tokenizer and model with QLoRA configuration

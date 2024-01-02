@@ -127,8 +127,5 @@ for epoch, batch in tqdm(enumerate(ppo_trainer.dataloader)):
     rewards = [class_mapping[cls.item()] for cls in predicted_classes] # Map each predicted class to the actual label
     rewards_list = [torch.tensor([class_mapping[cls.item()]], dtype=torch.float32) for cls in predicted_classes]
 
-    #query_tensors_list = [query_tensors[i] for i in range(query_tensors.shape[0])] # ppo_trainer requires list of tensors               
-    #response_tensors_list = [response_tensors[i] for i in range(response_tensors.shape[0])]
-    #print(rewards_list)
     stats = ppo_trainer.step(query_tensors, response_tensors, rewards_list)
     ppo_trainer.log_stats(stats, batch, rewards_list)
